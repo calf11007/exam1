@@ -115,7 +115,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # chef-validator, unless you changed the configuration.
   #
   #   chef.validation_client_name = "ORGNAME-validator"
-config.vm.provision :shell, inline: "apt-get install -y apache2 php5"
-
-
+config.vm.provision :shell, inline: "rm /etc/apt/sources.list;echo deb http://jp.archive.ubuntu.com/ubuntu precise main restricted universe multiverse >> /etc/apt/sources.list;echo deb http://jp.archive.ubuntu.com/ubuntu precise-updates main restricted universe multiverse >> /etc/apt/sources.list;echo deb http://security.ubuntu.com/ubuntu precise-security main restricted universe multiverse >> /etc/apt/sources.list;apt-get update;apt-get install -y apache2 php5"
 end
